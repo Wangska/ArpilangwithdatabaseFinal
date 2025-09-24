@@ -35,14 +35,16 @@ if (isLoggedIn()) {
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Split Bills <span class="highlight">Effortlessly</span></h1>
-            <p>The modern way to share expenses with friends. Track spending, split costs fairly, and settle up seamlessly. No more awkward money conversations.</p>
-            
-            <div class="hero-buttons">
-                <a href="register.php" class="btn btn-primary btn-lg">Start Splitting Bills</a>
-                <a href="login.php" class="btn btn-secondary btn-lg">Sign In</a>
+            <div class="hero-content">
+                <h1>Split Bills <span class="highlight">Effortlessly</span></h1>
+                <p>The modern way to share expenses with friends. Track spending, split costs fairly, and settle up seamlessly. No more awkward money conversations.</p>
+                
+                <div class="hero-buttons">
+                    <a href="register.php" class="btn btn-primary">Start Splitting Bills</a>
+                    <a href="login.php" class="btn btn-secondary">Sign In</a>
+                </div>
             </div>
-
+            
             <div class="hero-image">
                 <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
                     <!-- Phone mockup -->

@@ -74,10 +74,9 @@ $categories = $stmt->fetchAll();
                     <h1 class="page-title">Your Bills</h1>
                     <p class="page-subtitle">Manage and track your shared expenses</p>
                 </div>
-                <div class="flex gap-2">
-                    <a href="join-bill.php" class="btn btn-outline">👥 Join Bill</a>
-                    <button onclick="openCategoriesModal()" class="btn btn-outline">🏷️ Categories</button>
-                    <button onclick="openCreateBillModal()" class="btn btn-primary">+ Create Bill</button>
+                <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <button onclick="openCategoriesModal()" class="btn btn-outline">Categories</button>
+                    <button onclick="openCreateBillModal()" class="btn btn-primary">Create Bill</button>
                 </div>
             </div>
 
@@ -94,15 +93,17 @@ $categories = $stmt->fetchAll();
                     <?php foreach ($bills as $bill): ?>
                         <div class="bill-card">
                             <div class="bill-header">
-                                <div class="bill-icon" style="background: <?php echo htmlspecialchars($bill['category_color'] ?? '#6366f1'); ?>;">
-                                    <?php echo htmlspecialchars($bill['category_icon'] ?? '📋'); ?>
-                                </div>
-                                <div class="bill-info">
-                                    <h3 class="bill-title"><?php echo htmlspecialchars($bill['name']); ?></h3>
-                                    <div class="bill-details">
-                                        <span><?php echo $bill['participant_count']; ?> participants</span>
-                                        <span>Total: $<?php echo number_format($bill['total_amount'], 2); ?></span>
-                                        <span>Created: <?php echo date('m/d/Y', strtotime($bill['created_at'])); ?></span>
+                                <div style="display: flex; align-items: center; gap: 1rem; flex: 1;">
+                                    <div class="bill-icon" style="background: <?php echo htmlspecialchars($bill['category_color'] ?? '#6366f1'); ?>;">
+                                        <?php echo htmlspecialchars($bill['category_icon'] ?? '📋'); ?>
+                                    </div>
+                                    <div class="bill-info">
+                                        <h3 class="bill-title"><?php echo htmlspecialchars($bill['name']); ?></h3>
+                                        <div class="bill-details">
+                                            <span><?php echo $bill['participant_count']; ?> participants</span>
+                                            <span>Total: $<?php echo number_format($bill['total_amount'], 2); ?></span>
+                                            <span>Created: <?php echo date('m/d/Y', strtotime($bill['created_at'])); ?></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bill-actions">

@@ -14,8 +14,7 @@ body {
 
 /* Header styles */
 .header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: white;
     border-bottom: 1px solid #e5e7eb;
     padding: 1rem 0;
     position: fixed;
@@ -23,6 +22,7 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .header .container {
@@ -38,22 +38,22 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #1f2937;
     text-decoration: none;
 }
 
 .logo-icon {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    background: #4F46E5;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1rem;
+    font-size: 0.875rem;
 }
 
 .nav-links {
@@ -90,25 +90,25 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #4F46E5;
     color: white;
-    box-shadow: 0 4px 14px 0 rgba(102, 126, 234, 0.25);
+    border: 1px solid #4F46E5;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgba(102, 126, 234, 0.35);
+    background: #4338CA;
+    border-color: #4338CA;
 }
 
 .btn-secondary {
     background: transparent;
-    color: #4f46e5;
-    border: 2px solid #4f46e5;
+    color: #374151;
+    border: 1px solid #D1D5DB;
 }
 
 .btn-secondary:hover {
-    background: #4f46e5;
-    color: white;
+    background: #F9FAFB;
+    border-color: #9CA3AF;
 }
 
 .btn-outline {
@@ -130,59 +130,75 @@ body {
 /* Hero section */
 .hero {
     padding: 8rem 0 6rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #059669 100%);
     color: white;
-    text-align: center;
+    text-align: left;
     position: relative;
     overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="90" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
 }
 
 .hero .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    position: relative;
-    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 500px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .hero h1 .highlight {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #10B981;
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     margin-bottom: 2.5rem;
     opacity: 0.9;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    line-height: 1.6;
 }
 
 .hero-buttons {
     display: flex;
     gap: 1rem;
-    justify-content: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons .btn {
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+}
+
+.hero-buttons .btn-primary {
+    background: white;
+    color: #4F46E5;
+    border: none;
+}
+
+.hero-buttons .btn-primary:hover {
+    background: #F8FAFC;
+}
+
+.hero-buttons .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-buttons .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Hero illustration */
@@ -202,7 +218,7 @@ body {
 /* Features section */
 .features {
     padding: 6rem 0;
-    background: white;
+    background: #F8FAFC;
 }
 
 .features .container {
@@ -213,28 +229,30 @@ body {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     margin-top: 4rem;
 }
 
 .feature-card {
+    background: white;
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     border-radius: 16px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #E5E7EB;
     transition: all 0.3s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border-color: #4f46e5;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #D1D5DB;
 }
 
 .feature-icon {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     margin: 0 auto 1.5rem;
     border-radius: 20px;
     display: flex;
@@ -245,35 +263,41 @@ body {
 }
 
 .feature-icon.smart {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #4F46E5;
 }
 
 .feature-icon.invite {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: #06B6D4;
 }
 
 .feature-icon.premium {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: #10B981;
 }
 
 .feature-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #1f2937;
+    color: #1F2937;
 }
 
 .feature-card p {
-    color: #6b7280;
+    color: #6B7280;
     line-height: 1.6;
+    font-size: 0.875rem;
 }
 
 /* CTA section */
 .cta {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #10B981 100%);
     color: white;
     text-align: center;
+    border-radius: 20px;
+    margin: 4rem 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta .container {
@@ -283,7 +307,7 @@ body {
 }
 
 .cta h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -298,6 +322,26 @@ body {
     display: flex;
     gap: 1rem;
     justify-content: center;
+}
+
+.cta-buttons .btn-primary {
+    background: white;
+    color: #4F46E5;
+    border: none;
+}
+
+.cta-buttons .btn-primary:hover {
+    background: #F8FAFC;
+}
+
+.cta-buttons .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Footer */
@@ -321,16 +365,17 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #F8FAFC;
 }
 
 .auth-card {
     background: white;
-    border-radius: 16px;
-    padding: 2.5rem;
+    border-radius: 12px;
+    padding: 3rem 2.5rem;
     width: 100%;
-    max-width: 420px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    max-width: 440px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    border: 1px solid #E5E7EB;
 }
 
 .auth-header {
@@ -340,21 +385,36 @@ body {
 
 .auth-header .logo {
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.auth-header h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: #6B7280;
+    font-size: 0.875rem;
+    margin-bottom: 0;
 }
 
 .back-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #6b7280;
+    color: #4F46E5;
     text-decoration: none;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 0.875rem;
+    font-weight: 500;
 }
 
 .back-link:hover {
-    color: #4f46e5;
+    color: #4338CA;
 }
 
 .form-group {
@@ -420,17 +480,19 @@ body {
 /* Dashboard styles */
 .dashboard {
     padding-top: 5rem;
+    background: #F8FAFC;
+    min-height: 100vh;
 }
 
 .sidebar {
     position: fixed;
     top: 5rem;
     left: 0;
-    width: 250px;
+    width: 220px;
     height: calc(100vh - 5rem);
     background: white;
-    border-right: 1px solid #e5e7eb;
-    padding: 2rem 0;
+    border-right: 1px solid #E5E7EB;
+    padding: 1.5rem 0;
 }
 
 .sidebar-nav {
@@ -439,7 +501,7 @@ body {
 }
 
 .sidebar-nav li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .sidebar-nav a {
@@ -447,66 +509,77 @@ body {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    color: #6b7280;
+    color: #6B7280;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
+    font-size: 0.875rem;
     transition: all 0.2s;
 }
 
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
-    background: #f3f4f6;
-    color: #4f46e5;
+    background: #EEF2FF;
+    color: #4F46E5;
 }
 
 .main-content {
-    margin-left: 250px;
+    margin-left: 220px;
     padding: 2rem;
+    background: #F8FAFC;
 }
 
 .page-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .page-title {
-    font-size: 2rem;
+    font-size: 1.875rem;
     font-weight: 700;
-    color: #1f2937;
+    color: #1F2937;
+    margin-bottom: 0.25rem;
 }
 
 .page-subtitle {
-    color: #6b7280;
-    margin-bottom: 2rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    margin-bottom: 0;
 }
 
 /* Bill cards */
 .bills-grid {
     display: grid;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .bill-card {
     background: white;
     border-radius: 12px;
     padding: 1.5rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #E5E7EB;
     transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .bill-card:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+    border-color: #D1D5DB;
 }
 
 .bill-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1rem;
 }
 
 .bill-icon {
@@ -517,18 +590,20 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    color: white;
     flex-shrink: 0;
 }
 
 .bill-info {
     flex: 1;
+    margin-left: 1rem;
 }
 
 .bill-title {
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
-    color: #1f2937;
+    color: #1F2937;
 }
 
 .bill-details {
@@ -536,25 +611,25 @@ body {
     align-items: center;
     gap: 1rem;
     font-size: 0.875rem;
-    color: #6b7280;
+    color: #6B7280;
 }
 
 .bill-status {
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    padding: 0.375rem 0.75rem;
+    border-radius: 16px;
     font-size: 0.75rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    text-transform: lowercase;
+    letter-spacing: 0;
 }
 
 .bill-status.active {
-    background: #dbeafe;
-    color: #1d4ed8;
+    background: #DBEAFE;
+    color: #1E40AF;
 }
 
 .bill-status.settled {
-    background: #dcfce7;
+    background: #DCFCE7;
     color: #166534;
 }
 
@@ -565,22 +640,23 @@ body {
 }
 
 .bill-action {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #E5E7EB;
     background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s;
-    color: #6b7280;
+    color: #6B7280;
+    font-size: 0.875rem;
 }
 
 .bill-action:hover {
-    background: #f9fafb;
-    border-color: #9ca3af;
+    background: #F9FAFB;
+    border-color: #D1D5DB;
     color: #374151;
 }
 
